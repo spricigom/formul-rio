@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora IMC</title>
+  <script>
+
+
+    function click_calcular() {
+      let peso = document.getElementById("txtpeso").value;
+      let altura = document.getElementById("txtaltura").value;
+      if (peso == ""){
+        alert("Informe o peso");
+      }else if (altura == ""){
+        alert("Informe o altura");
+      }else{
+        let IMC = Number(peso) / (Number(altura) * Number(altura));
+        document.getElementById("txtIMC").value = IMC.toFixed(1);
+        if (IMC <= 16){
+            alert("Magreza Grave")
+        }
+        else if (IMC <= 17){
+            alert("Magreza Moderada")
+        }
+        else if(IMC <= 18.5){
+            alert("Magreza Leve")
+        }
+        else if(IMC <= 25){
+            alert("Saudável")
+        }
+        else if(IMC <= 30){
+            alert("Sobrepeso")
+        }
+        else if(IMC <= 35){
+            alert("Obesidade grau I")
+        }
+        else if(IMC <= 40){
+            alert("Obesidade grau II (severa)")
+        }
+        else if(IMC > 40){
+            alert("Obesidade gurau III (mórbida)")
+        }
+      }
+    }
+
+    function click_limpar() {
+      document.getElementById("txtpeso").value = "";
+      document.getElementById("txtaltura").value = "";
+      document.getElementById("txtIMC").value = "";
+      
+    }
+
+
+  </script>
+</head>
+
+<body>
+  <h1 id="tit">
+    Calculadora IMC
+  </h1>
+
+  <form>
+    <div>
+      <label for="txtpeso">Peso</label>
+      <input type="number" name="" id="txtpeso" value="1">
+    </div>
+    <div>
+      <label for="txtaltura">Altura</label>
+      <input type="number" name="" id="txtaltura">
+    </div>
+    <div>
+      <label for="txtIMC">IMC: </label>
+      <input type="number" name="" id="txtIMC" disabled>
+    </div>
+    <div>
+      <input type="button" value="Calcular" onclick="click_calcular();">
+
+      <input type="button" value="Limpar" onclick="click_limpar();">
+    </div>
+  </form>
+
+
+
+</body>
+
+</html>
